@@ -80,3 +80,7 @@ a {
     text-decoration: none;
     color: #F05423;
 }
+
+.btn-primary:hover {
+    cursor: pointer;
+}
