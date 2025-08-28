@@ -1,11 +1,14 @@
 from flask import Flask, render_template, request
-from register import register_user
+from api.register import register_user
+from flask_cors import CORS
 
 app = Flask(
     __name__,
     template_folder="../frontend/templates",
     static_folder="../frontend/static"
 )
+
+CORS(app)
 
 # Route for the homepage (login page)
 @app.route("/login", methods=["GET", "POST"])
