@@ -15,10 +15,13 @@ def login():
 def register():
     return render_template("register.html")
 
-
 @app.route("/", methods=["GET", "POST"])
 def index():
     return render_template("index.html")
+
+@app.route("/rewardshub")
+def rewardshub():
+    return render_template("rewardshub.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
