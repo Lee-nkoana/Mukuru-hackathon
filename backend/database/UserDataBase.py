@@ -2,7 +2,7 @@
 
 from sqlalchemy import create_engine, Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker, relationship
 
 #DataBase SetUp
 
@@ -20,6 +20,7 @@ class User(Base):
     id = Column(Integer,primary_key=True)
     name = Column(String)
     email = Column(String,unique=True)
+    transactions = relationship("Transactions",back_populates="user")
       
 #Create tables
 
