@@ -17,6 +17,7 @@ class Tiers(Base):
     __tablename__ = "Tiers"
     id = Column(Integer, primary_key=True)
     tier = Column(String)
+    description = Column(String)
 
 Base.metadata.drop_all(engine)
 Base.metadata.create_all(engine)
@@ -26,15 +27,32 @@ Session = sessionmaker(bind=engine)
 
 session = Session()
 
-# create
+# create Tiers
 
-Silver = Tiers(tier="Silver")
-Gold = Tiers(tier="Gold")
-Platinum = Tiers(tier="Platinum")
+Silver = Tiers(tier="Silver",description="New members or those with a low level of activity/spend.")
+Gold = Tiers(tier="Gold", description="Members who reach a moderate spending threshold or maintain consistent engagement.")
+Platinum = Tiers(tier="Platinum", description="High-value members who achieve the highest spending/engagement threshold.")
 
 session.add_all([Silver, Gold, Platinum])
 
 session.commit()
 
-# read
+# read Tiers
 
+
+def tiers():
+    tiers = session.query(Tiers).all()
+    for tier in tiers:
+        print(f"Tier: {tier} \nDescription: {tier.description}")
+
+
+#create points
+
+Transactions = Points(activity="Transaction", points=1)
+
+# read points
+
+def points():
+    activities = session.query(Points).all()
+    for activity in activities:
+        print(f"Activity: {activity}")
