@@ -5,7 +5,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 #DataBase SetUp
-DataBase_URL = "sqlite:///coding.db"
+DataBase_URL = "sqlite:///database.db"
 
 engine = create_engine(DataBase_URL, echo =True)
 
