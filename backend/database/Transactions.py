@@ -1,6 +1,7 @@
 from sqlalchemy import create_engine, Column, Integer, String
 from sqlalchemy.orm import DeclarativeBase, sessionmaker, relationship
 import sqlite3
+from UserDataBase import Base
 
 engine = create_engine('sqlite:///database.db', echo=True)
 
@@ -14,7 +15,7 @@ class Transactions(Base):
     recipient = Column(String)
     amount = Column(Integer)
     currency = Column(String)
-    user = relationship("Users",back_populates="transactions")
+    user = relationship("User",back_populates="transactions")
     
 
 Base.metadata.drop_all(engine)

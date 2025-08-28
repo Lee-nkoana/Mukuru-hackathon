@@ -1,11 +1,9 @@
 from sqlalchemy import create_engine, Column, Integer, String
 from sqlalchemy.orm import DeclarativeBase, sessionmaker
 import sqlite3
+from UserDataBase import Base
 
 engine = create_engine('sqlite:///database.db', echo=True)
-
-class Base(DeclarativeBase):
-    pass
     
 class Points(Base):
     __tablename__ = "points"
@@ -48,8 +46,8 @@ def tiers():
 
 #create points
 
-Transactions = Points(activity="Transaction", points=1)
-
+transactions = session.add(Points(activity="Transaction", points=1))
+session.commit()
 # read points
 
 def points():
