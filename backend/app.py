@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 from api.register import register_user
+from api.login import user_login
 from flask_cors import CORS
 
 app = Flask(
@@ -15,7 +16,14 @@ CORS(app)
 def login():
     return render_template("login.html")
 
-@app.route("/register", methods=["GET", "POST"])
+
+@app.route("/home")
+def home():
+    return render_template("landingpage.html")
+
+
+
+@app.route("/register", methods=["GET"])
 def register():
     return render_template("register.html")
 
@@ -26,6 +34,17 @@ def index():
 @app.route("/rewardshub")
 def rewardshub():
     return render_template("rewardshub.html")
+
+@app.route("/profile/<username>", methods=["GET"])
+def profile(username):
+    return render_template("profile.html", username=username)
+
+
+
+@app.route("/api/login", methods=["POST"])
+def api_login():
+    return user_login()
+
 
 @app.route("/api/register", methods=["POST"])
 def api_register():
