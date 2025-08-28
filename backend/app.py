@@ -12,12 +12,12 @@ def login():
     return render_template("login.html")
 
 @app.route("/register", methods=["GET", "POST"])
-def login():
+def register():
     return render_template("register.html")
 
 
 @app.route("/", methods=["GET", "POST"])
-def login():
+def index():
     return render_template("index.html")
 
 if __name__ == "__main__":
