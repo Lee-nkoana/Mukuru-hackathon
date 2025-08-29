@@ -15,7 +15,7 @@
         <h2>Mukuru loyalty points hub</h2>
 
 
-        <form method="post">
+        <form id="loginForm" method="post">
             <!-- <p>Enter your login details</p> -->
             <div class="form-group">
                 <input autofocus class="form-control" type="text" name="username" placeholder="Username / Email" />
@@ -28,4 +28,21 @@
 
         Don't have an account? <a href="">Register here.</a>
     </div>
+    <p id="loginMessage"></p>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const email = e.target.email.value;
+            const password = e.target.password.value;
+
+            const result = await loginUser(email, password);
+            document.getElementById("loginMessage").innerText = result.message;
+
+            // if (result.message === "Login successful!") {
+            //     window.location.href = "/dashboard"; 
+            // }
+        });
+    </script>
 </body>

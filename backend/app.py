@@ -17,7 +17,7 @@ def login():
     return render_template("login.html")
 
 
-@app.route("/home")
+@app.route("/")
 def home():
     return render_template("landingpage.html")
 
@@ -60,7 +60,6 @@ def api_register():
 def api_transaction():
     from api.transaction import transact
     return transact()
-
 
 
 
