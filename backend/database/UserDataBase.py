@@ -22,7 +22,7 @@ class User(Base):
     balance = Column(Float)
     password = Column(String) 
     points = Column(Integer)
-    tier = Column(String) 
+    tier = Column(String)
 
 #Create tables
 Base.metadata.create_all(engine)  
@@ -72,19 +72,31 @@ def get_user_balance(user_email):
         return session.query(User).filter_by(email=user_email).first().balance
     
     except Exception as e:
-        print(f"Error getting user by ID: {e}")
+        print(f"Error getting user by email: {e}")
         return None
     
     # # Update
 
 def update_user_balance(user_email, new_balance):
-    user = session.query(User).filter_by(email=user_email).first()
-    user.balance = new_balance
-    session.commit()
+
+    try:
+        user = session.query(User).filter_by(email=user_email).first()
+        user.balance = new_balance
+        session.commit()
+
+    except Exception as e:
+        print(f"Error updating user: {e}")
+        return None
 
 # delete 
 
 def delete(user):
      
-    session.delete(user)
-    session.commit()
+    try:
+        session.delete(user)
+        session.commit()
+
+    except Exception as e:
+        print(f"Error deleting user: {e}")
+        return None
+    
