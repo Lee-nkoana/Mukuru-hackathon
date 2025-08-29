@@ -31,11 +31,6 @@ def dashboard():
     return render_template("dashboard.html")
 
 
-@app.route("/", methods=["GET", "POST"])
-def index():
-    return render_template("index.html")
-
-
 @app.route("/rewards")
 def rewards():
     return render_template("rewards.html")
@@ -53,6 +48,10 @@ def transaction():
 @app.route("tiers", methods=["GET", "POST"])
 def tiers():
     return render_template("tiers.html")
+
+@app.route("sharepoints", methods=["GET", "POST"])
+def sharepoints():
+    return render_template("sharepoints.html")
 
 #api endpoints
 
