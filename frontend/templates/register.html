@@ -18,14 +18,20 @@
         <form method="post">
             <!-- <p>Enter your login details</p> -->
             <div class="form-group">
-                <input autofocus class="form-control" type="text" name="username" placeholder="Username / Email" />
+                <input autofocus class="form-control" type="text" name="username" placeholder="Username" />
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" name="username" placeholder="Email" />
             </div>
             <div class="form-group">
                 <input class="form-control" type="password" name="password" placeholder="Password" />
             </div>
-            <input class="btn-primary" type="submit" value="Login" />
+            <div class="form-group">
+                <input class="form-control" type="password" name="password" placeholder="Confirm Password" />
+            </div>
+            <input class="btn-primary" type="submit" value="Sign Up" />
         </form>
 
-        Don't have an account? <a href="">login here.</a>
+        Already have an account? <a href="">login here.</a>
     </div>
 </body>

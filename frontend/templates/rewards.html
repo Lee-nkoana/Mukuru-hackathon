@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Morekuru</title>
+    <!-- <link href="static/login.css" rel="stylesheet" /> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='rewards.css') }}">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo-circle">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFswFu01B03xoKWZgyFipvh7uRqroVHruodA&s"
+                alt="Logo">
+        </div>
+        <div class="user-card">
+            <h3>User1</h3>
+            <p>user1@gmail.com</p>
+            <p class="points">200 Loyalty Points</p>
+        </div>
+
+        <nav>
+            <a href="#">Dashboard</a>
+            <a href="#">Points & Balance</a>
+            <a href="#">Transactions</a>
+            <a href="#">Rewards Marketplace</a>
+            <a href="#">Tiers</a>
+            <a href="#">Share my Points</a>
+        </nav>
+
+        <div class="logout">Log Out</div>
+    </div>
+
+    <div class="main-bar">
+        <div class="title-card">
+            <h2>Marketplace & Rewards</h2>
+        </div>
+        <div class="main-content">
+            <h2>Rewards & Marketplace</h2>
+            <div class="rewards-grid">
+                <div>Gift card
+                    <button class="btn-redeem">Redeem</button>
+                </div>
+                <div>Grocery voucher
+                    <button class="btn-redeem">Redeem</button>
+                </div>
+                <div>Discount Coupon
+                    <button class="btn-redeem">Redeem</button>
+                </div>
+                <div>Cash back
+                    <button class="btn-redeem">Redeem</button>
+                </div>
+            </div>
+            <div>
+                <h2>Promotion</h2>
+            </div>
+            <div>Spend R2000 or more this month and earn a bonus 200 points</div>
+        </div>
+    </div>
+
+</body>
+
+</html>
