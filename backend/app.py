@@ -45,11 +45,11 @@ def profile(username):
 def transaction():
     return render_template("transactions.html")
 
-@app.route("tiers", methods=["GET", "POST"])
+@app.route("/tiers", methods=["GET", "POST"])
 def tiers():
     return render_template("tiers.html")
 
-@app.route("sharepoints", methods=["GET", "POST"])
+@app.route("/sharepoints", methods=["GET", "POST"])
 def sharepoints():
     return render_template("sharepoints.html")
 
