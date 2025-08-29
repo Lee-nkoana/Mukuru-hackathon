@@ -26,14 +26,19 @@ def home():
 def register():
     return render_template("register.html")
 
+@app.route("/dashboard", methods=["GET"])
+def dashboard():
+    return render_template("dashboard.html")
+
+
 @app.route("/", methods=["GET", "POST"])
 def index():
     return render_template("index.html")
 
 
-@app.route("/rewardshub")
-def rewardshub():
-    return render_template("rewardshub.html")
+@app.route("/rewards")
+def rewards():
+    return render_template("rewards.html")
 
 
 @app.route("/profile/<username>", methods=["GET"])
@@ -44,6 +49,10 @@ def profile(username):
 @app.route("/transaction", methods =["GET", "POST"])
 def transaction():
     return render_template("transactions.html")
+
+@app.route("tiers", methods=["GET", "POST"])
+def tiers():
+    return render_template("tiers.html")
 
 #api endpoints
 
