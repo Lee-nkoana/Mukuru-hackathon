@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine, Column, Integer, String
 from sqlalchemy.orm import DeclarativeBase, sessionmaker, relationship
 import sqlite3
-from .UserDataBase import Base
+from UserDataBase import Base
 
 engine = create_engine('sqlite:///database.db', echo=True)
 
@@ -40,7 +40,7 @@ def fetchTransactions():
     transactions = session.query(Transactions).all()
 
     for transaction in transactions:
-        print(transaction.reference, transaction.recipient, transaction.amount, transaction.currency)
+        print(transaction.reference, transaction.recipient, transaction.amount)
 
 def userTransactions(User):
     return session.query(Transactions).filter_by(User).first()
