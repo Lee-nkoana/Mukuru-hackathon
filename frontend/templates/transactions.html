@@ -1,29 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Transaction History</title>
 </head>
+
+<style>
+  html, body {
+    height: 100%;
+  }
+</style>
+
 <body style="margin:0; font-family:Arial, sans-serif; background:#2e2e2e; color:white; display:flex;">
 
   <!-- Sidebar -->
-  <div style="width:240px; background:linear-gradient(180deg, #176BEF, #0d3c92); height:100vh; display:flex; flex-direction:column; align-items:center; padding:20px 10px; box-shadow:4px 0 12px rgba(0,0,0,0.4);">
-    
-    
-    <div style="width:100px; height:100px; border-radius:50%; background:#fff; display:flex; justify-content:center; align-items:center; margin-bottom:15px; overflow:hidden; border:3px solid white; box-shadow:0 0 12px rgba(255,255,255,0.5);">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/5/50/The_current_Mukuru_logo_2023.jpg" alt="Mukuru Logo" style="width:100%; height:auto;">
+  <div
+    style="width:240px; background:linear-gradient(180deg, #176BEF, #0d3c92); height:100vh; display:flex; flex-direction:column; align-items:center; padding:20px 10px; box-shadow:4px 0 12px rgba(0,0,0,0.4);">
+
+
+    <div
+      style="width:100px; height:100px; border-radius:50%; background:#fff; display:flex; justify-content:center; align-items:center; margin-bottom:15px; overflow:hidden; border:3px solid white; box-shadow:0 0 12px rgba(255,255,255,0.5);">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/50/The_current_Mukuru_logo_2023.jpg" alt="Mukuru Logo"
+        style="width:100%; height:auto;">
     </div>
-    
+
     <p style="color:white; font-size:14px; margin-bottom:30px;">user@gmail.com</p>
 
     <!-- Navigation -->
     <nav style="display:flex; flex-direction:column; gap:20px; text-align:left; width:100%; padding:0 20px;">
-      <a href="#" style="text-decoration:none; color:white; font-size:16px; padding:10px; border-radius:8px;"> Dashboard</a>
-      <a href="#" style="text-decoration:none; color:white; font-size:16px; padding:10px; border-radius:8px;"> Points & Balance</a>
-      <a href="#" style="text-decoration:none; color:white; font-size:16px; padding:10px; border-radius:8px; background:rgba(255,255,255,0.1);"> Transaction History</a>
-      <a href="#" style="text-decoration:none; color:white; font-size:16px; padding:10px; border-radius:8px;"> Rewards & Marketplace</a>
+      <a href="#" style="text-decoration:none; color:white; font-size:16px; padding:10px; border-radius:8px;">
+        Dashboard</a>
+      <a href="#" style="text-decoration:none; color:white; font-size:16px; padding:10px; border-radius:8px;"> Points &
+        Balance</a>
+      <a href="#"
+        style="text-decoration:none; color:white; font-size:16px; padding:10px; border-radius:8px; background:rgba(255,255,255,0.1);">
+        Transaction History</a>
+      <a href="#" style="text-decoration:none; color:white; font-size:16px; padding:10px; border-radius:8px;"> Rewards &
+        Marketplace</a>
       <a href="#" style="text-decoration:none; color:white; font-size:16px; padding:10px; border-radius:8px;"> Tiers</a>
-      <a href="#" style="text-decoration:none; color:white; font-size:16px; padding:10px; border-radius:8px;"> Share My Profile</a>
+      <a href="#" style="text-decoration:none; color:white; font-size:16px; padding:10px; border-radius:8px;"> Share My
+        Profile</a>
     </nav>
 
     <a href="#" style="color:#ffcccc; margin-top:auto; font-weight:bold; padding:10px;">Log Out</a>
@@ -33,40 +50,67 @@
   <div style="flex:1; padding:40px;">
     <h1 style="font-size:38px; text-align:center; animation:fadeIn 1.5s ease-in-out;">Send Money</h1>
 
-     {% comment %} <div style="flex:1; padding:40px;"> {% endcomment %}
-    {% comment %} <h1 style="font-size:38px; text-align:center; animation:fadeIn 1.5s ease-in-out;">Send Money</h1> {% endcomment %}
-
-    <div style=" border-radius:15px; padding:30px; width:500px; margin:40px auto; box-shadow:0 6px 14px rgba(0,0,0,0.5); animation:fadeIn 1.5s ease-in-out;">
+    <div
+      style=" border-radius:15px; padding:30px; width:500px; margin:40px auto; box-shadow:0 6px 14px rgba(0,0,0,0.5); animation:fadeIn 1.5s ease-in-out;">
       <h2 style="margin-bottom:20px; text-align:center;">New Transaction</h2>
-      
+
+     
+<div style="margin-top:30px; margin-bottom:40px;">
+  <h3 style="font-size:18px; margin-bottom:15px;">Recipient Details</h3>
+  <table style="width:100%; border-collapse:separate; border-spacing:0 12px;">
+    <tr>
+      <td><input type="text" placeholder="Name:" style="width:100%; padding:10px; border-radius:8px; border:none; background:#1e1e1e; color:white;"></td>
+      <td><input type="text" placeholder="Surname:" style="width:100%; padding:10px; border-radius:8px; border:none; background:#1e1e1e; color:white;"></td>
+    </tr>
+    <tr>
+      <td colspan="2"><input type="text" placeholder="Account Number:" style="width:100%; padding:10px; border-radius:8px; border:none; background:#1e1e1e; color:white;"></td>
+    </tr>
+
+    <tr>
+      <td colspan="2"><input type="text" placeholder="Reference:" style="width:100%; padding:10px; border-radius:8px; border:none; background:#1e1e1e; color:white;"></td>
+    </tr>
+    <tr>
+      <td colspan="2"><input type="text" placeholder="Amount:" style="width:100%; padding:10px; border-radius:8px; border:none; background:#1e1e1e; color:white;"></td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <select style="width:100%; padding:10px; border-radius:8px; border:none; background:#1e1e1e; color:white;">
+          <option value="">Select Country:</option>
+          <option>South Africa</option>
+        </select>
+      </td>
+    </tr>
+  </table>
+</div>
+
       <!-- Transaction Info -->
       <div style="margin-top:30px;">
-          <h3 style="font-size:18px;">Transaction Activity</h3>
-          <table style="width:100%; border-collapse:collapse; margin-top:10px; background:#1e1e1e; border-radius:8px; overflow:hidden;">
-            <thead>
-              <tr style="background:#333;">
-                <th style="padding:10px; text-align:left;">Date</th>
-                <th style="padding:10px; text-align:left;">Transaction</th>
-                <th style="padding:10px; text-align:left;">Points Earned</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td style="padding:10px;">25 August 2025</td>
-                <td style="padding:10px;">Send R 500</td>
-                <td style="padding:10px; color:#00ff88;">+10 Points</td>
-    
-            
-            </tbody>
-          </table>
-        </div>
-        
-       
-        
+        <h3 style="font-size:18px;">Transaction Activity</h3>
+        <table
+          style="width:100%; border-collapse:collapse; margin-top:10px; background:#1e1e1e; border-radius:8px; overflow:hidden;">
+          <thead>
+            <tr style="background:#333;">
+              <th style="padding:10px; text-align:left;">Date</th>
+              <th style="padding:10px; text-align:left;">Transaction</th>
+              <th style="padding:10px; text-align:left;">Points Earned</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding:10px;">25 August 2025</td>
+              <td style="padding:10px;">Send R 500</td>
+              <td style="padding:10px; color:#00ff88;">+10 Points</td>
+
+
+          </tbody>
+        </table>
+      </div>
+
 
       <!-- Button -->
       <div style="text-align:center;">
-        <button style="background:linear-gradient(90deg, #F05423, #F05423); color:white; padding:12px 25px; font-size:16px; border:none; border-radius:10px; cursor:pointer; box-shadow:0 4px 10px rgba(0,0,0,0.3); transition:transform 0.3s;">
+        <button
+          style="background:linear-gradient(90deg, #F05423, #F05423); color:white; padding:12px 25px; font-size:16px; border:none; border-radius:10px; cursor:pointer; box-shadow:0 4px 10px rgba(0,0,0,0.3); transition:transform 0.3s;">
           Confirm & Send
         </button>
       </div>
@@ -76,14 +120,29 @@
 
   <style>
     @keyframes sendMoney {
-      0% { transform: translateX(0) rotate(0deg); }
-      50% { transform: translateX(10px) rotate(15deg); }
-      100% { transform: translateX(0) rotate(0deg); }
+      0% {
+        transform: translateX(0) rotate(0deg);
+      }
+
+      50% {
+        transform: translateX(10px) rotate(15deg);
+      }
+
+      100% {
+        transform: translateX(0) rotate(0deg);
+      }
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     nav a:hover {
@@ -96,4 +155,5 @@
     }
   </style>
 </body>
+
 </html>

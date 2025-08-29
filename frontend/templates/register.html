@@ -15,23 +15,43 @@
         <h2>Mukuru loyalty points hub</h2>
 
 
-        <form method="post">
+        <form id="registerForm" method="post">
             <!-- <p>Enter your login details</p> -->
             <div class="form-group">
                 <input autofocus class="form-control" type="text" name="username" placeholder="Username" />
             </div>
             <div class="form-group">
-                <input class="form-control" type="text" name="username" placeholder="Email" />
+                <input class="form-control" type="text" name="email" placeholder="Email" />
             </div>
             <div class="form-group">
                 <input class="form-control" type="password" name="password" placeholder="Password" />
             </div>
             <div class="form-group">
-                <input class="form-control" type="password" name="password" placeholder="Confirm Password" />
+                <input class="form-control" type="password" name="confirm_password" placeholder="Confirm Password" />
             </div>
             <input class="btn-primary" type="submit" value="Sign Up" />
         </form>
 
         Already have an account? <a href="">login here.</a>
     </div>
+    <p id="message"></p>
+
+    <script src="{{ url_for('static', filename='api_connector.js') }}" defer></script>
+    <script>
+        document.getElementById("registerForm").addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const data = {
+                username: e.target.username.value,
+                email: e.target.email.value,
+                password: e.target.password.value,
+                confirm_password: e.target.confirm_password.value
+            };
+
+            const result = await registerUser(data);
+            console.log(result)
+            alert(result.message)
+            // document.getElementById("message").innerText = result.message;
+        });
+    </script>
 </body>

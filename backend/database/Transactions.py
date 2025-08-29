@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine, Column, Integer, String
 from sqlalchemy.orm import DeclarativeBase, sessionmaker, relationship
 import sqlite3
-from UserDataBase import Base
+from .UserDataBase import Base
 
 engine = create_engine('sqlite:///database.db', echo=True)
 
@@ -14,8 +14,8 @@ class Transactions(Base):
     reference = Column(String)
     recipient = Column(String)
     amount = Column(Integer)
-    currency = Column(String)
-    user = relationship("User",back_populates="transactions")
+    date = Column(String)
+    # currency = Column(String)
     
 
 Base.metadata.drop_all(engine)
@@ -28,8 +28,8 @@ session = Session()
 
 # create
 
-def addTransaction(reference, recipient, amount, currency):
-    newTransaction = Transactions(reference=reference, recipient=recipient, amount=amount, currency=currency)
+def addTransaction(reference, recipient, amount):
+    newTransaction = Transactions(reference=reference, recipient=recipient, amount=amount)
 
     session.add(newTransaction)
     session.commit()
@@ -37,8 +37,10 @@ def addTransaction(reference, recipient, amount, currency):
 # read
 
 def fetchTransactions():
-    transactions = session.query(transactions).all()
+    transactions = session.query(Transactions).all()
 
     for transaction in transactions:
         print(transaction.reference, transaction.recipient, transaction.amount, transaction.currency)
 
+def userTransactions(User):
+    return session.query(Transactions).filter_by(User).first()
