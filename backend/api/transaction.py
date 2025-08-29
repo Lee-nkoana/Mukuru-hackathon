@@ -1,5 +1,5 @@
 from flask import request, jsonify
-from database.UserDataBase import get_user_by_email
+from database.UserDataBase import get_user_by_email,get_user_balance,update_user_balance
 from database.Transactions import addTransaction
 
 def transact():
@@ -18,10 +18,14 @@ def transact():
         reference = data.get('reference')
         recipient = data.get('recipient') 
         amount = data.get('amount')
-        currency = data.get('currency')
-        
+        # currency = data.get('currency')
+        current_balance = get_user_balance(user_email)
+        new_balance = current_balance - amount
+
+        update_user_balance(user_email, new_balance)
+
         # Validate that all required fields are provided
-        if not user_email or not reference or not recipient or not amount or not currency:
+        if not user_email or not reference or not recipient or not amount:
             return jsonify({
                 "success": False,
                 "message": "All fields are required: user_email, reference, recipient, amount, currency"
@@ -59,7 +63,7 @@ def transact():
                 reference=reference,
                 recipient=recipient,
                 amount=int(amount),  # Convert to int for database
-                currency=currency,
+                # currency=currency,
             )
             
             if saved_transaction:
@@ -72,7 +76,7 @@ def transact():
                         "reference": reference,  # Use original reference without user_id suffix
                         "recipient": recipient,
                         "amount": int(amount),
-                        "currency": currency,
+                        # "currency": currency,
                         "date": datetime.now().isoformat(),
                         "user_email": user_email
                     }
