@@ -82,6 +82,8 @@ class User(Base):
     email = Column(String, unique=True)
     balance = Column(Float)
     password = Column(String)  # Add password field
+    points = Column(Integer)
+    tier = Column(String) 
 
 #Create tables
 Base.metadata.create_all(engine)  # Commented out to prevent auto-creation
@@ -93,9 +95,11 @@ session = Session()
 #User Database Operations
 def create_user(username, email, password):
     """Create a new user in the database"""
-    default = 20
+    default_balance = 20
+    default_tier = "Silver"
+    default_points = 0
     try:
-        new_user = User(name=username, email=email, password=password, balance=default)
+        new_user = User(name=username, email=email, password=password, balance=default_balance, tier=default_tier, points=default_points)
         session.add(new_user)
         session.commit()
         return new_user
