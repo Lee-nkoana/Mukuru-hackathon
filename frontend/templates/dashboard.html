@@ -1,38 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Dashboard</title>
 </head>
+
 <body style="margin:0; font-family:Arial, sans-serif; background:#2e2e2e; color:white; display:flex;">
 
   <!-- Sidebar -->
-  <div style="width:240px; background:linear-gradient(180deg, #176BEF, #0d3c92); height:100vh; display:flex; flex-direction:column; align-items:center; padding:20px 10px; box-shadow:4px 0 12px rgba(0,0,0,0.4);">
+  <div
+    style="width:240px; background:linear-gradient(180deg, #176BEF, #0d3c92); height:100vh; display:flex; flex-direction:column; align-items:center; padding:20px 10px; box-shadow:4px 0 12px rgba(0,0,0,0.4);">
 
     <!-- Logo Circle -->
-    <div style="width:100px; height:100px; border-radius:50%; background:#fff; margin-bottom:15px; overflow:hidden; box-shadow:0 0 10px rgba(255,255,255,0.6);">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/5/50/The_current_Mukuru_logo_2023.jpg" alt="Mukuru Logo" style="width:100%; height:100%; object-fit:cover;">
+    <div
+      style="width:100px; height:100px; border-radius:50%; background:#fff; margin-bottom:15px; overflow:hidden; box-shadow:0 0 10px rgba(255,255,255,0.6);">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/50/The_current_Mukuru_logo_2023.jpg" alt="Mukuru Logo"
+        style="width:100%; height:100%; object-fit:cover;">
     </div>
 
-    <p style="color:#eee; font-size:14px; margin-bottom:30px;">User@gmail.com</p>
+    <!-- <p id="useremail" style="color:#eee; font-size:14px; margin-bottom:30px;">User@gmail.com</p> -->
 
     <!-- Navigation -->
-     <nav style="display:flex; flex-direction:column; gap:20px; text-align:left; width:100%; padding:0 20px;">
-      <a href="#" style="text-decoration:none; color:white; font-size:16px; padding:10px; border-radius:8px; transition:0.3s;"> Dashboard</a>
-      <a href="#" style="text-decoration:none; color:white; font-size:16px; padding:10px; border-radius:8px; transition:0.3s;"> Points & Balance</a>
-      <a href="#" style="text-decoration:none; color:white; font-size:16px; padding:10px; border-radius:8px; transition:0.3s;"> Transactions</a>
-      <a href="#" style="text-decoration:none; color:white; font-size:16px; padding:10px; border-radius:8px; transition:0.3s;"> Rewards Marketplace</a>
-      <a href="#" style="text-decoration:none; color:white; font-size:16px; padding:10px; border-radius:8px; transition:0.3s;"> Tiers </a>
-      <a href="#" style="text-decoration:none; color:white; font-size:16px; padding:10px; border-radius:8px; transition:0.3s;"> Share my points</a>
+    <nav style="display:flex; flex-direction:column; gap:20px; text-align:left; width:100%; padding:0 20px;">
+      <a href="{{ url_for('dashboard') }}"
+        style="text-decoration:none; color:white; font-size:16px; padding:10px; border-radius:8px; transition:0.3s;">
+        Dashboard</a>
+      <a href="{{ url_for('balances') }}"
+        style="text-decoration:none; color:white; font-size:16px; padding:10px; border-radius:8px; transition:0.3s;">
+        Points & Balance</a>
+      <a href="{{ url_for('transaction') }}"
+        style="text-decoration:none; color:white; font-size:16px; padding:10px; border-radius:8px; transition:0.3s;">
+        Transactions</a>
+      <a href="{{ url_for('rewards') }}"
+        style="text-decoration:none; color:white; font-size:16px; padding:10px; border-radius:8px; transition:0.3s;">
+        Rewards Marketplace</a>
+      <a href="{{ url_for('tiers') }}"
+        style="text-decoration:none; color:white; font-size:16px; padding:10px; border-radius:8px; transition:0.3s;">
+        Tiers </a>
+      <a href="{{ url_for('sharepoints') }}"
+        style="text-decoration:none; color:white; font-size:16px; padding:10px; border-radius:8px; transition:0.3s;">
+        Share my points</a>
 
-    <a href="#" style="color:#ffcccc; margin-top:auto; font-weight:bold; padding:10px;"> Log Out</a>
+      <a href="#" style="color:#ffcccc; margin-top:auto; font-weight:bold; padding:10px;"> Log Out</a>
 
   </div>
 
   <!-- Main Content -->
-  <div style="flex:1; padding:40px; display:flex; flex-direction:column; gap:30px; background: radial-gradient(circle at top left, rgba(255,255,255,0.03), transparent 40%), radial-gradient(circle at bottom right, rgba(255,255,255,0.05), transparent 60%);">
+  <div
+    style="flex:1; padding:40px; display:flex; flex-direction:column; gap:30px; background: radial-gradient(circle at top left, rgba(255,255,255,0.03), transparent 40%), radial-gradient(circle at bottom right, rgba(255,255,255,0.05), transparent 60%);">
 
-    <h1 style="font-size:50px; margin:0;">Hi User</h1>
+    <h1 id="username" style="font-size:50px; margin:0;">Hi User</h1>
 
     <!-- Points Summary & History -->
     <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:30px;">
@@ -45,14 +63,17 @@
         <div style="margin:15px 0;">
           <p style="font-size:14px;">65% towards next reward</p>
           <div style="background:#444; height:16px; border-radius:10px; overflow:hidden;">
-            <div style="width:65%; height:100%; background:linear-gradient(90deg, #F05423, #FF4500); animation:fillProgress 1.5s forwards;"></div>
+            <div
+              style="width:65%; height:100%; background:linear-gradient(90deg, #F05423, #FF4500); animation:fillProgress 1.5s forwards;">
+            </div>
           </div>
         </div>
 
         <!-- Recent Activity Table -->
         <div style="margin-top:30px;">
           <h3 style="font-size:18px;">Recent Activity</h3>
-          <table style="width:100%; border-collapse:collapse; margin-top:10px; background:#1e1e1e; border-radius:8px; overflow:hidden;">
+          <table
+            style="width:100%; border-collapse:collapse; margin-top:10px; background:#1e1e1e; border-radius:8px; overflow:hidden;">
             <thead>
               <tr style="background:#333;">
                 <th style="padding:10px; text-align:left;">Date</th>
@@ -72,8 +93,10 @@
       </div>
 
       <!-- Transaction History Card -->
-      <div style="min-width:260px; background:#1e1e1e; border:1px solid #333; padding:20px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.4);">
-        <h3 style="margin-top:0; font-size:20px; border-bottom:1px solid #444; padding-bottom:10px;">Transaction History</h3>
+      <div
+        style="min-width:260px; background:#1e1e1e; border:1px solid #333; padding:20px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.4);">
+        <h3 style="margin-top:0; font-size:20px; border-bottom:1px solid #444; padding-bottom:10px;">Transaction History
+        </h3>
         <table style="width:100%; border-collapse:collapse; font-size:14px;">
           <tr>
             <td style="padding:8px;">25/08/2025</td>
@@ -105,7 +128,8 @@
     </div>
 
     <!-- Insights Section -->
-    <div style="background:#f0f0f0; color:#333; padding:20px; border-radius:12px; box-shadow:0 4px 14px rgba(0,0,0,0.5);animation:fillProgress 1.5s forwards">
+    <div
+      style="background:#f0f0f0; color:#333; padding:20px; border-radius:12px; box-shadow:0 4px 14px rgba(0,0,0,0.5);animation:fillProgress 1.5s forwards">
       <h3 style="margin-top:0;">Insights</h3>
       <p>Points earned per month</p>
       <div style="display:flex; gap:20px; align-items:flex-end; height:140px; padding-top:20px;">
@@ -131,13 +155,33 @@
   <!-- Animation Styles -->
   <style>
     @keyframes fillProgress {
-      from { width: 0; }
-      to { width: 65%; }
+      from {
+        width: 0;
+      }
+
+      to {
+        width: 65%;
+      }
     }
+
     nav a:hover {
-      background:rgba(255,255,255,0.2);
-      transform:translateX(5px);
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateX(5px);
     }
   </style>
+  <script src="{{ url_for('static', filename='auth_user.js') }}" defer></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const user = getCurrentUser();
+
+      if (!user) {
+        window.location.href = "/login";
+        return;
+      }
+      document.getElementById("username").innerHTML = `Hi ${user.username}`;
+      document.querySelector("#points").innerText = `Points: ${user.points}`;
+    });
+  </script>
 </body>
+
 </html>

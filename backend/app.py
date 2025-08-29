@@ -40,6 +40,9 @@ def rewards():
 def profile(username):
     return render_template("profile.html", username=username)
 
+@app.route("/balances", methods =["GET", "POST"])
+def balances():
+    return render_template("points&balances.html")
 
 @app.route("/transaction", methods =["GET", "POST"])
 def transaction():

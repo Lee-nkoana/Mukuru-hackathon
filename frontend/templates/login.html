@@ -26,7 +26,7 @@
             <input class="btn-primary" type="submit" value="Login" />
         </form>
         <p id="loginMessage"></p>
-        Don't have an account? <a href="">Register here.</a>
+        Don't have an account? <a href="{{ url_for('register') }}">Register here.</a>
     </div>
     <!-- <p id="loginMessage"></p> -->
 
@@ -44,7 +44,8 @@
             console.log(result)
             document.getElementById("loginMessage").innerText = result.message;
 
-            if (result.message === "Login successful!") {
+            if (result.message === "Login successful") {
+                localStorage.setItem("currentUser", JSON.stringify(result.data));
                 window.location.href = "/dashboard";
             }
         });
