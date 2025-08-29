@@ -20,7 +20,7 @@ body {
 .sidebar {
     width: 18vw;
     height: 100vh;
-    background: linear-gradient(180deg, #176BEF, #0d3c92);
+    background:#52575d; color:#52575dc
     display: flex;
     flex-direction: column;
     align-items: center;
