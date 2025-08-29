@@ -17,8 +17,7 @@
 
   <!-- Sidebar -->
   <div
-    style="width:240px;background:#52575d; color:#52575dc; height:100vh; display:flex; flex-direction:column; align-items:center; padding:20px 10px; box-shadow:4px 0 12px rgba(0,0,0,0.4);">
-
+    style="width:240px; background:linear-gradient(180deg, #52575d, #52575dc); height:100vh; display:flex; flex-direction:column; align-items:center; padding:20px 10px; box-shadow:4px 0 12px rgba(0,0,0,0.4);">
 
     <div
       style="width:100px; height:100px; border-radius:50%; background:#fff; display:flex; justify-content:center; align-items:center; margin-bottom:15px; overflow:hidden; border:3px solid white; box-shadow:0 0 12px rgba(255,255,255,0.5);">
@@ -28,26 +27,27 @@
 
     <p style="color:white; font-size:14px; margin-bottom:30px;">user@gmail.com</p>
 
-    <!-- Navigation -->
     <nav style="display:flex; flex-direction:column; gap:20px; text-align:left; width:100%; padding:0 20px;">
-      <a href="#" style="text-decoration:none; color:#F05423; font-size:16px; padding:10px; border-radius:8px;">
+      <a href="{{ url_for('dashboard') }}"
+        style="text-decoration:none; color:white; font-size:16px; padding:10px; border-radius:8px; transition:0.3s;">
         Dashboard</a>
-      <a href="#" style="text-decoration:none; color:#F05423; font-size:16px; padding:10px; border-radius:8px;"> Points
-        &
-        Balance</a>
-      <a href="#" style="text-decoration:none; color:#F05423; font-size:16px; padding:10px; border-radius:8px; ">
-        Transaction History</a>
-      <a href="#" style="text-decoration:none; color:#F05423; font-size:16px; padding:10px; border-radius:8px;"> Rewards
-        &
-        Marketplace</a>
-      <a href="#" style="text-decoration:none; color:#F05423; font-size:16px; padding:10px; border-radius:8px;">
-        Tiers</a>
-      <a href="#" style="text-decoration:none; color:#F05423; font-size:16px; padding:10px; border-radius:8px;"> Share
-        My
-        Profile</a>
-    </nav>
+      <a href="{{ url_for('balances') }}"
+        style="text-decoration:none; color:white; font-size:16px; padding:10px; border-radius:8px; transition:0.3s;">
+        Points & Balance</a>
+      <a href="{{ url_for('transaction') }}"
+        style="text-decoration:none; color:white; font-size:16px; padding:10px; border-radius:8px; transition:0.3s;">
+        Transactions</a>
+      <a href="{{ url_for('rewards') }}"
+        style="text-decoration:none; color:white; font-size:16px; padding:10px; border-radius:8px; transition:0.3s;">
+        Rewards Marketplace</a>
+      <a href="{{ url_for('tiers') }}"
+        style="text-decoration:none; color:white; font-size:16px; padding:10px; border-radius:8px; transition:0.3s;">
+        Tiers </a>
+      <a href="{{ url_for('sharepoints') }}"
+        style="text-decoration:none; color:white; font-size:16px; padding:10px; border-radius:8px; transition:0.3s;">
+        Share my points</a>
 
-    <a href="#" style="color:#ffcccc; margin-top:auto; font-weight:bold; padding:10px;">Log Out</a>
+      <a href="#" style="color:#ffcccc; margin-top:auto; font-weight:bold; padding:10px;"> Log Out</a>
   </div>
 
   <!-- Main Content -->
@@ -58,32 +58,31 @@
       style=" border-radius:15px; padding:30px; width:500px; margin:40px auto; box-shadow:0 6px 14px rgba(0,0,0,0.5); animation:fadeIn 1.5s ease-in-out;">
       <h2 style="margin-bottom:20px; text-align:center;">New Transaction</h2>
 
-
-      <div style="margin-top:30px; margin-bottom:40px;">
+      <!-- Form -->
+      <form id="transactionForm" style="margin-top:30px; margin-bottom:40px;">
         <h3 style="font-size:18px; margin-bottom:15px;">Recipient Details</h3>
         <table style="width:100%; border-collapse:separate; border-spacing:0 12px;">
           <tr>
-            <td><input type="text" placeholder="Name:"
+            <td><input name="recipient_name" type="text" placeholder="Name:"
                 style="width:100%; padding:10px; border-radius:8px; border:none; background:#1e1e1e; color:white;"></td>
-            <td><input type="text" placeholder="Surname:"
-                style="width:100%; padding:10px; border-radius:8px; border:none; background:#1e1e1e; color:white;"></td>
-          </tr>
-          <tr>
-            <td colspan="2"><input type="text" placeholder="Account Number:"
-                style="width:100%; padding:10px; border-radius:8px; border:none; background:#1e1e1e; color:white;"></td>
-          </tr>
-
-          <tr>
-            <td colspan="2"><input type="text" placeholder="Reference:"
+            <td><input name="recipient_surname" type="text" placeholder="Surname:"
                 style="width:100%; padding:10px; border-radius:8px; border:none; background:#1e1e1e; color:white;"></td>
           </tr>
           <tr>
-            <td colspan="2"><input type="text" placeholder="Amount:"
+            <td colspan="2"><input name="account_number" type="text" placeholder="Account Number:"
+                style="width:100%; padding:10px; border-radius:8px; border:none; background:#1e1e1e; color:white;"></td>
+          </tr>
+          <tr>
+            <td colspan="2"><input name="reference" type="text" placeholder="Reference:"
+                style="width:100%; padding:10px; border-radius:8px; border:none; background:#1e1e1e; color:white;"></td>
+          </tr>
+          <tr>
+            <td colspan="2"><input name="amount" type="text" placeholder="Amount:"
                 style="width:100%; padding:10px; border-radius:8px; border:none; background:#1e1e1e; color:white;"></td>
           </tr>
           <tr>
             <td colspan="2">
-              <select
+              <select name="country"
                 style="width:100%; padding:10px; border-radius:8px; border:none; background:#1e1e1e; color:white;">
                 <option value="">Select Country:</option>
                 <option>South Africa</option>
@@ -91,7 +90,15 @@
             </td>
           </tr>
         </table>
-      </div>
+
+        <!-- Button -->
+        <div style="text-align:center; margin-top:30px;">
+          <button type="submit"
+            style="background:linear-gradient(90deg, #F05423, #F05423); color:white; padding:12px 25px; font-size:16px; border:none; border-radius:10px; cursor:pointer; box-shadow:0 4px 10px rgba(0,0,0,0.3); transition:transform 0.3s;">
+            Confirm & Send
+          </button>
+        </div>
+      </form>
 
       <!-- Transaction Info -->
       <div style="margin-top:30px;">
@@ -110,23 +117,12 @@
               <td style="padding:10px;">25 August 2025</td>
               <td style="padding:10px;">Send R 500</td>
               <td style="padding:10px; color:#00ff88;">+10 Points</td>
-
-
+            </tr>
           </tbody>
         </table>
       </div>
-
-
-      <!-- Button -->
-      <div style="text-align:center;">
-        <button
-          style="background:linear-gradient(90deg, #F05423, #F05423); color:white; padding:12px 25px; font-size:16px; border:none; border-radius:10px; cursor:pointer; box-shadow:0 4px 10px rgba(0,0,0,0.3); transition:transform 0.3s;">
-          Confirm & Send
-        </button>
-      </div>
     </div>
   </div>
-
 
   <style>
     @keyframes sendMoney {
@@ -164,6 +160,37 @@
       transform: scale(1.05);
     }
   </style>
+
+  <script src="{{ url_for('static', filename='api_connector.js') }}" defer></script>
+  <script src="{{ url_for('static', filename='auth_user.js') }}" defer></script>
+  <script>
+    document.getElementById("transactionForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const user = getCurrentUser();
+      console.log(user)
+
+
+      const data = {
+        recipient_name: e.target.recipient_name.value,
+        recipient_surname: e.target.recipient_surname.value,
+        account_number: e.target.account_number.value,
+        reference: e.target.reference.value,
+        amount: e.target.amount.value,
+        country: e.target.country.value,
+        user_email: user.email
+      };
+
+      try {
+        const result = await createTransaction(data);
+        console.log(result);
+        alert(result.message || "Transaction completed");
+      } catch (err) {
+        console.error(err);
+        alert("Failed to complete transaction.");
+      }
+    });
+  </script>
 </body>
 
 </html>

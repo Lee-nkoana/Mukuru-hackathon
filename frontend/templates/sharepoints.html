@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Share My Points</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
   <style>
-    html, body {
+    html,
+    body {
       height: 100%;
       width: 100%;
       margin: 0;
@@ -20,12 +22,13 @@
     .sidebar {
       width: 240px;
       height: 100vh;
-      background: background:#52575d; color:#52575dc);
+      background: background:#52575d;
+      color: #52575dc);
       display: flex;
       flex-direction: column;
       align-items: center;
       padding: 20px 10px;
-      box-shadow: 4px 0 12px rgba(0,0,0,0.4);
+      box-shadow: 4px 0 12px rgba(0, 0, 0, 0.4);
       flex-shrink: 0;
     }
 
@@ -40,7 +43,7 @@
       margin-bottom: 15px;
       overflow: hidden;
       border: 3px solid white;
-      box-shadow: 0 0 12px rgba(255,255,255,0.5);
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
     }
 
     .logo-circle img {
@@ -49,139 +52,176 @@
     }
 
     .user-card {
-      background:#1e1e1e; 
-      border-radius:12px; 
-      padding:15px; 
-      width:90%; 
-      text-align:center; 
-      margin-bottom:20px; 
-      box-shadow:0 4px 10px rgba(0,0,0,0.5);
+      background: #1e1e1e;
+      border-radius: 12px;
+      padding: 15px;
+      width: 90%;
+      text-align: center;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     }
 
-    .user-card h3 { margin:5px 0; }
-    .user-card p { margin:5px 0; font-size:14px; color:#bbb; }
-    .user-card .points { font-weight:bold; color:#ffd700; margin-top:5px; }
+    .user-card h3 {
+      margin: 5px 0;
+    }
+
+    .user-card p {
+      margin: 5px 0;
+      font-size: 14px;
+      color: #bbb;
+    }
+
+    .user-card .points {
+      font-weight: bold;
+      color: #ffd700;
+      margin-top: 5px;
+    }
 
     /* Navigation */
     nav {
-      display:flex;
-      flex-direction:column;
-      gap:15px;
-      width:100%;
-      padding:0 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 100%;
+      padding: 0 10px;
     }
 
     nav a {
-      text-decoration:none;
-      color:white;
-      font-size:16px;
-      padding:10px;
-      border-radius:8px;
-      transition:0.3s;
+      text-decoration: none;
+      color: white;
+      font-size: 16px;
+      padding: 10px;
+      border-radius: 8px;
+      transition: 0.3s;
     }
 
     nav a:hover {
-      background:rgba(240, 84, 35, 1);
-      transform:translateX(5px);
+      background: rgba(240, 84, 35, 1);
+      transform: translateX(5px);
     }
 
     .logout {
-      margin-top:auto;
-      color:#ffcccc;
-      font-weight:bold;
-      padding:10px;
-      cursor:pointer;
+      margin-top: auto;
+      color: #ffcccc;
+      font-weight: bold;
+      padding: 10px;
+      cursor: pointer;
     }
 
     /* Main content */
     .main-content {
-      flex:1;
-      min-height:100vh;
-      padding:40px;
-      text-align:center;
-      overflow-y:auto;
+      flex: 1;
+      min-height: 100vh;
+      padding: 40px;
+      text-align: center;
+      overflow-y: auto;
     }
 
     h1 {
-      font-size:46px;
-      margin-bottom:40px;
-      animation:fadeIn 1.5s ease-in-out;
-      color:#F05423;
+      font-size: 46px;
+      margin-bottom: 40px;
+      animation: fadeIn 1.5s ease-in-out;
+      color: #F05423;
     }
 
     h2 {
-      font-size:22px;
-      margin-bottom:20px;
-      color:#1863DC;
+      font-size: 22px;
+      margin-bottom: 20px;
+      color: #1863DC;
     }
 
     form {
-      display:flex;
-      flex-direction:column;
-      max-width:500px;
-      width:100%;
-      margin:20px auto;
-      background:#444;
-      padding:25px;
-      border-radius:12px;
-      box-shadow:0 6px 14px rgba(0,0,0,0.5);
+      display: flex;
+      flex-direction: column;
+      max-width: 500px;
+      width: 100%;
+      margin: 20px auto;
+      background: #444;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.5);
     }
 
     .form-control {
-      margin:10px auto;
-      padding:10px 14px;
-      width:80%;
-      font-size:16px;
-      border-radius:8px;
-      border:1px solid #6883D7;
-      background-color:#2e2e2e;
-      color:#fff;
-      transition:0.3s ease;
+      margin: 10px auto;
+      padding: 10px 14px;
+      width: 80%;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #6883D7;
+      background-color: #2e2e2e;
+      color: #fff;
+      transition: 0.3s ease;
     }
 
     .form-control:focus {
-      outline:none;
-      border-color:#F05423;
-      box-shadow:0 0 8px rgba(240,84,35,0.8);
+      outline: none;
+      border-color: #F05423;
+      box-shadow: 0 0 8px rgba(240, 84, 35, 0.8);
     }
 
     .btn-primary {
-      font-size:18px;
-      border-radius:8px;
-      padding:12px 15px;
-      width:60%;
-      margin:20px auto 0;
-      color:#fff;
-      background:#F05423;
-      border:none;
-      cursor:pointer;
-      transition:0.3s ease;
+      font-size: 18px;
+      border-radius: 8px;
+      padding: 12px 15px;
+      width: 60%;
+      margin: 20px auto 0;
+      color: #fff;
+      background: #F05423;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s ease;
     }
 
     .btn-primary:hover {
-      background:#ff693a;
-      transform:scale(1.05);
+      background: #ff693a;
+      transform: scale(1.05);
     }
 
     @keyframes fadeIn {
-      from { opacity:0; transform:translateY(-20px);}
-      to { opacity:1; transform:translateY(0);}
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    @media (max-width:768px){
-      body { flex-direction:column; }
-      .sidebar { width:100%; height:auto; flex-direction:row; justify-content:space-around; padding:20px; }
-      .main-content { padding:20px; }
-      form .form-control, .btn-primary { width:90%; }
+    @media (max-width:768px) {
+      body {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 20px;
+      }
+
+      .main-content {
+        padding: 20px;
+      }
+
+      form .form-control,
+      .btn-primary {
+        width: 90%;
+      }
     }
   </style>
 </head>
+
 <body>
 
-  
+
   <div class="sidebar">
     <div class="logo-circle">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFswFu01B03xoKWZgyFipvh7uRqroVHruodA&s" alt="Logo">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFswFu01B03xoKWZgyFipvh7uRqroVHruodA&s"
+        alt="Logo">
     </div>
     <div class="user-card">
       <h3>User1</h3>
@@ -190,18 +230,30 @@
     </div>
 
     <nav style="display:flex; flex-direction:column; gap:20px; text-align:left; width:100%; padding:0 20px;">
-      <a href="#" style="text-decoration:none; color:#F05423; font-size:16px; padding:10px; border-radius:8px; transition:0.3s;"> Dashboard</a>
-      <a href="#" style="text-decoration:none; color:#F05423; font-size:16px; padding:10px; border-radius:8px; transition:0.3s;"> Points & Balance</a>
-      <a href="#" style="text-decoration:none; color:#F05423; font-size:16px; padding:10px; border-radius:8px; transition:0.3s;"> Transactions</a>
-      <a href="#" style="text-decoration:none; color:#F05423; font-size:16px; padding:10px; border-radius:8px; transition:0.3s;"> Rewards Marketplace</a>
-      <a href="#" style="text-decoration:none; color:#F05423; font-size:16px; padding:10px; border-radius:8px; transition:0.3s;"> Tiers </a>
-      <a href="#" style="text-decoration:none; color:#F05423; font-size:16px; padding:10px; border-radius:8px; transition:0.3s;"> Share my points</a>
+      <a href="{{ url_for('dashboard') }}"
+        style="text-decoration:none; color:white; font-size:16px; padding:10px; border-radius:8px; transition:0.3s;">
+        Dashboard</a>
+      <a href="{{ url_for('balances') }}"
+        style="text-decoration:none; color:white; font-size:16px; padding:10px; border-radius:8px; transition:0.3s;">
+        Points & Balance</a>
+      <a href="{{ url_for('transaction') }}"
+        style="text-decoration:none; color:white; font-size:16px; padding:10px; border-radius:8px; transition:0.3s;">
+        Transactions</a>
+      <a href="{{ url_for('rewards') }}"
+        style="text-decoration:none; color:white; font-size:16px; padding:10px; border-radius:8px; transition:0.3s;">
+        Rewards Marketplace</a>
+      <a href="{{ url_for('tiers') }}"
+        style="text-decoration:none; color:white; font-size:16px; padding:10px; border-radius:8px; transition:0.3s;">
+        Tiers </a>
+      <a href="{{ url_for('sharepoints') }}"
+        style="text-decoration:none; color:white; font-size:16px; padding:10px; border-radius:8px; transition:0.3s;">
+        Share my points</a>
 
-    <a href="#" style="color:#ffcccc; margin-top:auto; font-weight:bold; padding:10px;"> Log Out</a>
+      <a href="#" style="color:#ffcccc; margin-top:auto; font-weight:bold; padding:10px;"> Log Out</a>
   </div>
   </div>
 
- 
+
   <div class="main-content">
     <h1>Share My Points</h1>
     <h2>Share your points with a family member!</h2>
@@ -225,4 +277,5 @@
   </div>
 
 </body>
+
 </html>

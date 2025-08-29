@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Welcome to MoreKuru</title>
@@ -11,7 +12,8 @@
       padding: 0;
     }
 
-    body, html {
+    body,
+    html {
       height: 100%;
       font-family: 'Roboto', sans-serif;
       background: linear-gradient(135deg, #1f1f1f, #2c2c2c);
@@ -21,6 +23,7 @@
       align-items: center;
       text-align: center;
       padding: 20px;
+
     }
 
     .landing-page {
@@ -30,15 +33,15 @@
     }
 
     .logo {
-  margin-top: 20px;
-}
+      margin-top: 40px;
+    }
 
-.logo img {
-  max-width: 160px;
-  margin-bottom: 25px;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-}
+    .logo img {
+      max-width: 160px;
+      margin-bottom: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    }
 
 
     h1 {
@@ -104,7 +107,7 @@
       padding: 15px;
       background: #333;
       border-radius: 15px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
       transition: transform 0.3s ease;
     }
 
@@ -129,13 +132,26 @@
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     @media(max-width: 900px) {
-      h1 { font-size: 2.2rem; }
-      h2 { font-size: 1.3rem; }
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      h2 {
+        font-size: 1.3rem;
+      }
+
       .tiers {
         flex-direction: column;
         align-items: center;
@@ -143,6 +159,7 @@
     }
   </style>
 </head>
+
 <body>
   <div class="landing-page">
     <div class="logo">
@@ -152,16 +169,17 @@
     <h1>Welcome to MoreKuru</h1>
     <h2>Earn Points. Level Up. Win Big.</h2>
 
-    <p>Mukuru is a leading next-generation financial services platform for Africa’s emerging consumers. With MoreKuru, we reward you for every swipe, transaction, and moment of loyalty.</p>
+    <p>Mukuru is a leading next-generation financial services platform for Africa’s emerging consumers. With MoreKuru,
+      we reward you for every swipe, transaction, and moment of loyalty.</p>
 
     <ul class="benefits">
       <li>Earn points every time you send or spend</li>
       <li>Climb from Silver to Gold to Platinum</li>
       <li>Unlock vouchers, exclusive offers, and premium rewards</li>
-     
+
     </ul>
 
-    <a href="#" class="btn">Join Now & Start Earning</a>
+    <a href="{{ url_for('login') }}" class="btn">Join Now & Start Earning</a>
 
     <div class="tiers">
       <div class="tier">
@@ -181,4 +199,5 @@
     </div>
   </div>
 </body>
+
 </html>

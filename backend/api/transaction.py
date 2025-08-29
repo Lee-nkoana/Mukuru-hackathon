@@ -22,29 +22,19 @@ def transact():
         current_balance = get_user_balance(user_email)
         new_balance = current_balance - amount
 
-
-         # Check if user exists (user must be logged in)
-        user = get_user_by_email(user_email)
-        if not user:
-            return jsonify({
-                "success": False,
-                "message": "User not found. Please login first."
-            }), 404
-
         update_user_balance(user_email, new_balance)
 
         # Validate that all required fields are provided
         if not user_email or not reference or not recipient or not amount:
             return jsonify({
                 "success": False,
-                "message": "All fields are required: user_email, reference, recipient, amount"
+                "message": "All fields are required: user_email, reference, recipient, amount, currency"
             }), 400
         
         # Validate amount is a number
         try:
             amount = float(amount)
             if amount <= 0:
-
                 return jsonify({
                     "success": False,
                     "message": "Amount must be greater than 0"
@@ -55,7 +45,13 @@ def transact():
                 "message": "Amount must be a valid number"
             }), 400
         
-       
+        # Check if user exists (user must be logged in)
+        user = get_user_by_email(user_email)
+        if not user:
+            return jsonify({
+                "success": False,
+                "message": "User not found. Please login first."
+            }), 404
         
         # Simulate transaction processing (in real app, this would call payment gateway)
         # For now, we'll assume the transaction goes through successfully
@@ -102,7 +98,7 @@ def transact():
         print(f"Transaction error: {e}")
         return jsonify({
             "success": False,
-            "message": "Transaction processing failed. Please try again. {e}"
+            "message": "Transaction processing failed. Please try again."
         }), 500
 
        

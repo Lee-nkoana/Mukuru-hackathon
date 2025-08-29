@@ -1,62 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Tiers Page</title>
 </head>
+
 <body style="margin:0; font-family:Arial, sans-serif; background:#2e2e2e; color:white; display:flex;">
 
   <!-- Sidebar -->
-  <div style="width:240px; background:#52575d; color:#52575dc; height:100vh; display:flex; flex-direction:column; align-items:center; padding:20px 10px; box-shadow:4px 0 12px rgba(0,0,0,0.4);">
-    
-   
-    <div style="width:100px; height:100px; border-radius:50%; background:#333; display:flex; justify-content:center; align-items:center; margin-bottom:15px; overflow:hidden; border:3px solid white; box-shadow:0 0 12px rgba(255,255,255,0.5);">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFswFu01B03xoKWZgyFipvh7uRqroVHruodA&s" alt="Mukuru Logo" style="width:100%; height:auto;">
+  <div
+    style="width:240px; background:#52575d; color:#52575dc; height:100vh; display:flex; flex-direction:column; align-items:center; padding:20px 10px; box-shadow:4px 0 12px rgba(0,0,0,0.4);">
+
+
+    <div
+      style="width:100px; height:100px; border-radius:50%; background:#333; display:flex; justify-content:center; align-items:center; margin-bottom:15px; overflow:hidden; border:3px solid white; box-shadow:0 0 12px rgba(255,255,255,0.5);">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFswFu01B03xoKWZgyFipvh7uRqroVHruodA&s"
+        alt="Mukuru Logo" style="width:100%; height:auto;">
     </div>
-    
-   
-    <div style="background:#1e1e1e; border-radius:12px; padding:15px; width:90%; text-align:center; margin-bottom:20px; box-shadow:0 4px 10px rgba(0,0,0,0.5);">
+
+
+    <div
+      style="background:#1e1e1e; border-radius:12px; padding:15px; width:90%; text-align:center; margin-bottom:20px; box-shadow:0 4px 10px rgba(0,0,0,0.5);">
       <h3 style="margin:5px 0;">User1</h3>
       <p style="margin:5px 0; font-size:14px; color:#bbb;">user1@gmail.com</p>
       <p style="margin:8px 0; font-weight:bold; color:#ffd700;"> 200 Loyalty Points</p>
     </div>
 
-    <!-- Navigation -->
-      <nav style="display:flex; flex-direction:column; gap:20px; text-align:left; width:100%; padding:0 20px;">
-      <a href="#" style="text-decoration:none; color:#F05423; font-size:16px; padding:10px; border-radius:8px;">
+    <nav style="display:flex; flex-direction:column; gap:20px; text-align:left; width:100%; padding:0 20px;">
+      <a href="{{ url_for('dashboard') }}"
+        style="text-decoration:none; color:white; font-size:16px; padding:10px; border-radius:8px; transition:0.3s;">
         Dashboard</a>
-      <a href="#" style="text-decoration:none; color:#F05423; font-size:16px; padding:10px; border-radius:8px;"> Points &
-        Balance</a>
-      <a href="#"
-        style="text-decoration:none; color:#F05423; font-size:16px; padding:10px; border-radius:8px;">
-        Transaction History</a>
-      <a href="#" style="text-decoration:none; color:#F05423; font-size:16px; padding:10px; border-radius:8px;"> Rewards &
-        Marketplace</a>
-      <a href="#" style="text-decoration:none; color:#F05423; font-size:16px; padding:10px; border-radius:8px;"> Tiers</a>
-      <a href="#" style="text-decoration:none; color:#F05423; font-size:16px; padding:10px; border-radius:8px;"> Share My
-        Profile</a>
-    </nav>
+      <a href="{{ url_for('balances') }}"
+        style="text-decoration:none; color:white; font-size:16px; padding:10px; border-radius:8px; transition:0.3s;">
+        Points & Balance</a>
+      <a href="{{ url_for('transaction') }}"
+        style="text-decoration:none; color:white; font-size:16px; padding:10px; border-radius:8px; transition:0.3s;">
+        Transactions</a>
+      <a href="{{ url_for('rewards') }}"
+        style="text-decoration:none; color:white; font-size:16px; padding:10px; border-radius:8px; transition:0.3s;">
+        Rewards Marketplace</a>
+      <a href="{{ url_for('tiers') }}"
+        style="text-decoration:none; color:white; font-size:16px; padding:10px; border-radius:8px; transition:0.3s;">
+        Tiers </a>
+      <a href="{{ url_for('sharepoints') }}"
+        style="text-decoration:none; color:white; font-size:16px; padding:10px; border-radius:8px; transition:0.3s;">
+        Share my points</a>
 
-    <a href="#" style="color:#ffcccc; margin-top:auto; font-weight:bold; padding:10px;">Log Out</a>
+      <a href="#" style="color:#ffcccc; margin-top:auto; font-weight:bold; padding:10px;"> Log Out</a>
   </div>
 
   <!-- Main Content -->
   <div style="flex:1; padding:40px;">
-    <h1 style="font-size:46px; margin-bottom:40px; text-align:center; animation:fadeIn 1.5s ease-in-out;color:#F05423">Tiers</h1>
+    <h1 style="font-size:46px; margin-bottom:40px; text-align:center; animation:fadeIn 1.5s ease-in-out;color:#F05423">
+      Tiers</h1>
 
     <!-- Tiers Boxes -->
     <div style="display:flex; justify-content:center; gap:40px; margin-bottom:50px;">
-      <div style="background:#444; padding:25px; border-radius:12px; width:140px; text-align:center; animation:float 3s infinite ease-in-out; box-shadow:0 6px 14px rgba(0,0,0,0.5);">
+      <div
+        style="background:#444; padding:25px; border-radius:12px; width:140px; text-align:center; animation:float 3s infinite ease-in-out; box-shadow:0 6px 14px rgba(0,0,0,0.5);">
         <h3 style="margin:0;"> Silver</h3>
         <p><b>200 points</b></p>
         <p>250 points to next tier</p>
       </div>
 
-      <div style="background:#666; padding:25px; border-radius:12px; width:140px; text-align:center; animation:float 3s infinite ease-in-out 0.5s; box-shadow:0 6px 14px rgba(0,0,0,0.5);">
+      <div
+        style="background:#666; padding:25px; border-radius:12px; width:140px; text-align:center; animation:float 3s infinite ease-in-out 0.5s; box-shadow:0 6px 14px rgba(0,0,0,0.5);">
         <h3 style="margin:0;"> Gold</h3>
         <p><b>500 points</b></p>
       </div>
-      <div style="background:#c0392b; padding:25px; border-radius:12px; width:140px; text-align:center; animation:float 3s infinite ease-in-out 1s; box-shadow:0 6px 14px rgba(0,0,0,0.5);">
+      <div
+        style="background:#c0392b; padding:25px; border-radius:12px; width:140px; text-align:center; animation:float 3s infinite ease-in-out 1s; box-shadow:0 6px 14px rgba(0,0,0,0.5);">
         <h3 style="margin:0;"> Platinum</h3>
         <p><b>700+ points</b></p>
         <p>250 points to next tier</p>
@@ -64,32 +78,38 @@
     </div>
 
     <!-- benefits -->
-     <div style="display:flex; justify-content:center; gap:40px; margin-bottom:50px;">
-      <div style="background:#444; padding:90px; border-radius:12px; width:140px; text-align:center; animation:float 3s infinite ease-in-out; box-shadow:0 6px 14px rgba(0,0,0,0.5);">
+    <div style="display:flex; justify-content:center; gap:40px; margin-bottom:50px;">
+      <div
+        style="background:#444; padding:90px; border-radius:12px; width:140px; text-align:center; animation:float 3s infinite ease-in-out; box-shadow:0 6px 14px rgba(0,0,0,0.5);">
         <h3 style="margin:0; font-size: 30px; text-decoration: underline;"> Silver Benefits</h3>
         <p><b>Grocery voucher</b></p>
         <p><b>Gift Card</b></p>
         <p>spend on family and friends</p>
-        <button style="padding: 20px; border-radius: 10px; margin-top: 10px;  background: #f0dddd" box-shadow:0 5px 10px rgba(0,0,0,0.5)>
+        <button style="padding: 20px; border-radius: 10px; margin-top: 10px;  background: #f0dddd" box-shadow:0 5px 10px
+          rgba(0,0,0,0.5)>
           <h1 style="font-size: 15px; margin: 0; color: #444; ">Silver</h1>
         </button>
       </div>
-      <div style="background:#666; padding:90px; border-radius:12px; width:140px; text-align:center; animation:float 3s infinite ease-in-out 1s; box-shadow:0 6px 14px rgba(0,0,0,0.5);">
+      <div
+        style="background:#666; padding:90px; border-radius:12px; width:140px; text-align:center; animation:float 3s infinite ease-in-out 1s; box-shadow:0 6px 14px rgba(0,0,0,0.5);">
         <h3 style="margin:0; font-size: 30px; text-decoration: underline;"> Gold Benafits</h3>
         <p><b>Pharmacy DIscount Coupon</b></p>
         <p><b>+ addition to all rewards from Silver</b></p>
         <p>get more for one click</p>
-        <button style="padding: 20px; border-radius: 10px; margin-top: 10px;  background: #f0dddd" box-shadow:0 5px 10px rgba(0,0,0,0.5)>
+        <button style="padding: 20px; border-radius: 10px; margin-top: 10px;  background: #f0dddd" box-shadow:0 5px 10px
+          rgba(0,0,0,0.5)>
           <h1 style="font-size: 15px; margin: 0; color: #666;">Gold</h1>
         </button>
       </div>
-      <div style="background: #c0392b; padding:90px; border-radius:12px; width:140px; text-align:center; animation:float 3s infinite ease-in-out 1s; box-shadow:0 6px 14px rgba(0,0,0,0.5);">
+      <div
+        style="background: #c0392b; padding:90px; border-radius:12px; width:140px; text-align:center; animation:float 3s infinite ease-in-out 1s; box-shadow:0 6px 14px rgba(0,0,0,0.5);">
         <h3 style="margin:0; font-size: 30px; text-decoration: underline; "> Platinum Benefits</h3>
         <p><b>Cash Back</b></p>
         <p><b>+rewards from Silver</b></p>
         <p><b>+rewards from Gold</b></p>
         <p>enjoy the VIP treament</p>
-        <button style="padding: 20px; border-radius: 10px; margin-top: 10px;  background: #f0dddd" box-shadow:0 5px 10px rgba(0,0,0,0.5)>
+        <button style="padding: 20px; border-radius: 10px; margin-top: 10px;  background: #f0dddd" box-shadow:0 5px 10px
+          rgba(0,0,0,0.5)>
           <h1 style="font-size: 15px; margin: 0; color: #c0392b;">Platinum</h1>
         </button>
       </div>
@@ -103,8 +123,11 @@
     <!-- Progress Bar -->
     <div style="width:70%; margin:0 auto;">
       <p style="font-size:14px;">65% towards next reward</p>
-      <div style="background:#555; border-radius:10px; overflow:hidden; height:16px; box-shadow:inset 0 2px 6px rgba(0,0,0,0.5);">
-        <div style="background:linear-gradient(90deg, #1863DC, #F05423); height:100%; width:0; border-radius:10px; animation:fillBar 2s forwards;"></div>
+      <div
+        style="background:#555; border-radius:10px; overflow:hidden; height:16px; box-shadow:inset 0 2px 6px rgba(0,0,0,0.5);">
+        <div
+          style="background:linear-gradient(90deg, #1863DC, #F05423); height:100%; width:0; border-radius:10px; animation:fillBar 2s forwards;">
+        </div>
       </div>
     </div>
   </div>
@@ -112,21 +135,44 @@
   <!-- Animations -->
   <style>
     @keyframes fadeIn {
-      from { opacity:0; transform:translateY(-20px); }
-      to { opacity:1; transform:translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
+
     @keyframes float {
-      0%, 100% { transform:translateY(0); }
-      50% { transform:translateY(-12px); }
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-12px);
+      }
     }
+
     @keyframes fillBar {
-      from { width:0; }
-      to { width:65%; }
+      from {
+        width: 0;
+      }
+
+      to {
+        width: 65%;
+      }
     }
+
     nav a:hover {
-      background:rgba(255, 246, 243, 1);
-      transform:translateX(5px);
+      background: rgba(255, 246, 243, 1);
+      transform: translateX(5px);
     }
   </style>
 </body>
+
 </html>

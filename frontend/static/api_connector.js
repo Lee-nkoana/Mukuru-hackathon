@@ -22,3 +22,7 @@ async function registerUser(data) {
 async function loginUser(data) {
     return await apiRequest("/api/login", data);
 }
+
+async function createTransaction(data) {
+    return await apiRequest("/api/transaction", data);
+}

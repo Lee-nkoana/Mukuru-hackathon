@@ -24,22 +24,22 @@
 
     <!-- Nav Links -->
     <nav style="display:flex; flex-direction:column; gap:20px; text-align:left; width:100%; padding:0 20px;">
-      <a href="#"
+      <a href="{{ url_for('dashboard') }}"
         style="text-decoration:none; color:white; font-size:16px; padding:10px; border-radius:8px; transition:0.3s;">
         Dashboard</a>
-      <a href="#"
+      <a href="{{ url_for('balances') }}"
         style="text-decoration:none; color:white; font-size:16px; padding:10px; border-radius:8px; transition:0.3s;">
         Points & Balance</a>
-      <a href="#"
+      <a href="{{ url_for('transaction') }}"
         style="text-decoration:none; color:white; font-size:16px; padding:10px; border-radius:8px; transition:0.3s;">
         Transactions</a>
-      <a href="#"
+      <a href="{{ url_for('rewards') }}"
         style="text-decoration:none; color:white; font-size:16px; padding:10px; border-radius:8px; transition:0.3s;">
         Rewards Marketplace</a>
-      <a href="#"
+      <a href="{{ url_for('tiers') }}"
         style="text-decoration:none; color:white; font-size:16px; padding:10px; border-radius:8px; transition:0.3s;">
-        Tiers</a>
-      <a href="#"
+        Tiers </a>
+      <a href="{{ url_for('sharepoints') }}"
         style="text-decoration:none; color:white; font-size:16px; padding:10px; border-radius:8px; transition:0.3s;">
         Share my points</a>
 
