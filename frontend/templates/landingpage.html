@@ -24,29 +24,28 @@
     }
 
     .landing-page {
-      max-width: 800px;
+      max-width: 900px;
       width: 100%;
       animation: fadeIn 1.5s ease;
     }
 
     .logo img {
-      max-width: 200px;
-      margin-bottom: 30px;
+      max-width: 160px;
+      margin-bottom: 25px;
       border-radius: 10px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-      animation: fadeIn 1.5s ease;
     }
 
     h1 {
       font-size: 3rem;
       color: #F05423;
-      margin-bottom: 15px;
+      margin-bottom: 10px;
     }
 
     h2 {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       color: #82b1ff;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
       font-weight: 400;
     }
 
@@ -74,12 +73,54 @@
       transform: scale(1.05);
     }
 
-    .image-container img {
-      max-width: 100%;
-      border-radius: 20px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-      margin-top: 30px;
-      animation: fadeIn 2s ease;
+    .benefits {
+      list-style: none;
+      margin: 30px 0;
+      font-size: 1.05rem;
+      color: #eee;
+      line-height: 1.8;
+    }
+
+    .benefits li::before {
+      content: "✔️ ";
+      margin-right: 8px;
+    }
+
+    .tiers {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+
+    .tier {
+      max-width: 200px;
+      padding: 15px;
+      background: #333;
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+      transition: transform 0.3s ease;
+    }
+
+    .tier:hover {
+      transform: translateY(-5px);
+    }
+
+    .tier img {
+      width: 60px;
+      margin-bottom: 15px;
+    }
+
+    .tier h3 {
+      color: #F05423;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .tier p {
+      font-size: 0.95rem;
+      color: #ccc;
     }
 
     @keyframes fadeIn {
@@ -89,7 +130,11 @@
 
     @media(max-width: 900px) {
       h1 { font-size: 2.2rem; }
-      h2 { font-size: 1.2rem; }
+      h2 { font-size: 1.3rem; }
+      .tiers {
+        flex-direction: column;
+        align-items: center;
+      }
     }
   </style>
 </head>
@@ -100,15 +145,34 @@
     </div>
 
     <h1>Welcome to MoreKuru</h1>
-    <h2>Your Loyalty Points Hub</h2>
+    <h2>Earn Points. Level Up. Win Big.</h2>
 
+    <p>Mukuru is a leading next-generation financial services platform for Africa’s emerging consumers. With MoreKuru, we reward you for every swipe, transaction, and moment of loyalty.</p>
 
-    <p>Mukuru is a leading next-generation financial services platform for Africa’s emerging consumers. We serve millions of customers across the continent, enabling secure, affordable remittances and financial products that improve lives.</p>
-
-    <a href="#" class="btn">Get Started</a>
-
-  
+    <ul class="benefits">
+      <li>Earn points every time you send or spend</li>
+      <li>Climb from Silver to Gold to Platinum</li>
+      <li>Unlock vouchers, exclusive offers, and premium rewards</li>
      
+    </ul>
+
+    <a href="#" class="btn">Join Now & Start Earning</a>
+
+    <div class="tiers">
+      <div class="tier">
+        <h3>Silver</h3>
+        <p>Start earning from your very first transaction.</p>
+      </div>
+
+      <div class="tier">
+        <h3>Gold</h3>
+        <p>Double your rewards and enjoy exclusive deals.</p>
+      </div>
+
+      <div class="tier">
+        <h3>Platinum</h3>
+        <p>Unlock top-tier rewards and VIP treatment.</p>
+      </div>
     </div>
   </div>
 </body>
