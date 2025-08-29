@@ -33,6 +33,7 @@ def addTransaction(reference, recipient, amount):
 
     session.add(newTransaction)
     session.commit()
+    return True
 
 # read
 
