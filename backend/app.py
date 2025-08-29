@@ -11,7 +11,7 @@ app = Flask(
 
 CORS(app)
 
-# Route for the homepage (login page)
+#endpoints for page rendering
 @app.route("/login", methods=["GET", "POST"])
 def login():
     return render_template("login.html")
@@ -22,7 +22,6 @@ def home():
     return render_template("landingpage.html")
 
 
-
 @app.route("/register", methods=["GET"])
 def register():
     return render_template("register.html")
@@ -31,15 +30,22 @@ def register():
 def index():
     return render_template("index.html")
 
+
 @app.route("/rewardshub")
 def rewardshub():
     return render_template("rewardshub.html")
+
 
 @app.route("/profile/<username>", methods=["GET"])
 def profile(username):
     return render_template("profile.html", username=username)
 
 
+@app.route("/transaction", methods =["GET", "POST"])
+def transaction():
+    return render_template("transactions.html")
+
+#api endpoints
 
 @app.route("/api/login", methods=["POST"])
 def api_login():
@@ -49,6 +55,14 @@ def api_login():
 @app.route("/api/register", methods=["POST"])
 def api_register():
     return register_user()
+
+@app.route("/api/transaction", methods =["POST"])
+def api_transaction():
+    from api.transaction import transact
+    return transact()
+
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)
