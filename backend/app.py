@@ -69,7 +69,9 @@ def api_transaction():
     from api.transaction import transact
     return transact()
 
-
+@app.route("/api/rewards", methods =["POST"])
+def api_rewards():
+    return rewards()
 
 if __name__ == "__main__":
     app.run(debug=True)
