@@ -18,31 +18,35 @@
         <form id="loginForm" method="post">
             <!-- <p>Enter your login details</p> -->
             <div class="form-group">
-                <input autofocus class="form-control" type="text" name="username" placeholder="Username / Email" />
+                <input autofocus class="form-control" type="text" name="email" placeholder="Email" />
             </div>
             <div class="form-group">
                 <input class="form-control" type="password" name="password" placeholder="Password" />
             </div>
             <input class="btn-primary" type="submit" value="Login" />
         </form>
-
+        <p id="loginMessage"></p>
         Don't have an account? <a href="">Register here.</a>
     </div>
-    <p id="loginMessage"></p>
+    <!-- <p id="loginMessage"></p> -->
 
+    <script src="{{ url_for('static', filename='api_connector.js') }}" defer></script>
     <script>
         document.getElementById("loginForm").addEventListener("submit", async (e) => {
             e.preventDefault();
 
-            const email = e.target.email.value;
-            const password = e.target.password.value;
+            const data = {
+                email: e.target.email.value,
+                password: e.target.password.value,
+            };
 
-            const result = await loginUser(email, password);
+            const result = await loginUser(data);
+            console.log(result)
             document.getElementById("loginMessage").innerText = result.message;
 
-            // if (result.message === "Login successful!") {
-            //     window.location.href = "/dashboard"; 
-            // }
+            if (result.message === "Login successful!") {
+                window.location.href = "/dashboard";
+            }
         });
     </script>
 </body>

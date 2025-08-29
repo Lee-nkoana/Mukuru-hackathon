@@ -19,6 +19,6 @@ async function registerUser(data) {
     return await apiRequest("/api/register", data);
 }
 
-async function loginUser(email, password) {
-    return await apiRequest("/login", { email, password });
+async function loginUser(data) {
+    return await apiRequest("/api/login", data);
 }
