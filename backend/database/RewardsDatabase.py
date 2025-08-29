@@ -20,9 +20,7 @@ class Tiers(Base):
 Base.metadata.drop_all(engine)
 Base.metadata.create_all(engine)
 
-
 Session = sessionmaker(bind=engine)
-
 session = Session()
 
 # create Tiers
